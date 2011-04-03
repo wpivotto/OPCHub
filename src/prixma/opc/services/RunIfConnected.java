@@ -5,7 +5,7 @@ import prixma.opc.communication.OpcClient;
 
 
 /**
- * Libera execução do serviço somente se conexão OPC estiver ativa 
+ * Libera execucao do servico somente se conexao OPC estiver ativa 
  * @author William Pivotto <a href="mailto:william@prixma.com.br">email</a>
  * @version RunIfConnected.java, v 1.0 17/02/2009 21:47:48
  */
@@ -18,14 +18,14 @@ public class RunIfConnected implements RunStrategy, ConnectionListener {
 		OpcClient.connection().addConnectionStateListener(this);
 	}
 	
-	/** Condição verificada antes da execução do serviço
+	/** Condicao verificada antes da execucao do servico
 	 * @return Executa sempre que conectado
 	*/
 	public boolean shouldExecute() {
 		return test;
 	}
 	
-	/** Condição verificada antes da execução do serviço
+	/** Condicao verificada apos execucao do servico
 	 * @return Sempre tenta executar novamente
 	*/
 	public boolean shouldContinue() {

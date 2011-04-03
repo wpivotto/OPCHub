@@ -2,20 +2,15 @@ package prixma.opc.services;
 
 /**
  * @author William Pivotto <a href="mailto:william@prixma.com.br">email</a>
- * @version RunStrategy.java, v 1.0 2009/02/16 14:26:00
- * Contrato que um objeto deve respeitar para controlar a execução de um serviço;
+ * Contrato para controlar a execucao de um servico;
  */
 
 public interface RunStrategy {
 	
-	/** Condição verificada antes da execução do serviço
-	 * @return Serviço deve ser executado ou não
-	*/
+	// Condicao verificada antes da execucao do servico
 	public boolean shouldExecute();
 	
-	/** Condição verificada após a execução do serviço
-	 * @return Serviço deve continuar sendo executado ou não
-	*/
+	// Condicao verificada apos a execucao do servico
 	public boolean shouldContinue();
 	
 

@@ -2,14 +2,6 @@ package prixma.opc.services;
 
 import java.util.TimerTask;
 
-
-
-/**
- * @author William Pivotto <a href="mailto:william@prixma.com.br">email</a>
- * @version ServiceExecutor.java, v 1.0 2009/02/16 14:26:00
- * Classe responsável por gerenciar o ciclo de vida de um serviço
- */
-
 public class ServiceTask extends TimerTask {
 	
 	private Service service;
