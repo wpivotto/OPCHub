@@ -27,7 +27,7 @@ public class OpcDatabase {
 
 	public OpcDatabase(OpcConnection connection) {
 		this.connection = connection;
-		this.group = new OpcGroup(Configs.getValue("opc.tags.group"), true, Configs.getIntValue("opc.tags.refresh"), 0.0f);
+		this.group = new OpcGroup(Configs.get("opc.tags.group"), true, Configs.getInt("opc.tags.refresh"), 0.0f);
 	}
 
 	public OpcGroup getGroup(){

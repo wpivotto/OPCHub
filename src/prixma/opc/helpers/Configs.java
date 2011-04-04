@@ -9,22 +9,21 @@ public final class Configs {
 	
 	private static ResourceLoader loader = new ResourceLoader("/opc.properties");
 	
-	public String findValue(String configKey){
-		return loader.getValue(configKey);
-	}
-	
-	public static String getValue(String configKey){
-		 return loader.getValue(configKey);
+	public static String get(String key){
+		 return loader.getValue(key);
 	 }
 	
 	
-	public static int getIntValue(String configKey){
-		 return Integer.parseInt(loader.getValue(configKey));
+	public static int getInt(String key){
+		 return Integer.parseInt(loader.getValue(key));
 	}
 	
-	public static boolean getBoolValue(String configKey){
-		 return "true".equalsIgnoreCase(loader.getValue(configKey));
+	public static boolean supports(String feature){
+		 return Boolean.parseBoolean(loader.getValue(feature));
 	}	
 	
+	public static boolean has(String key){
+		 return loader.has(key);
+	}	
 	
 }

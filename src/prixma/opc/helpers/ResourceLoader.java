@@ -7,13 +7,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-/**
- * @author William Pivotto <a href="mailto:william@prixma.com.br">email</a>
- * @version ConfigLocator.java, v 1.0 17/02/2009 15:44:58
- */
+
 public class ResourceLoader {
 
-	private Properties configs;
+	private Properties properties;
 	private String fileName;
 	
 	public ResourceLoader(String fileName){
@@ -21,8 +18,8 @@ public class ResourceLoader {
 		this.fileName =  fileName;
 		
 		try {
-			configs = new Properties();
-			configs.load(this.getClass().getResourceAsStream(fileName));
+			properties = new Properties();
+			properties.load(this.getClass().getResourceAsStream(fileName));
 		} catch (FileNotFoundException e) {
 			 throw new RuntimeException("Arquivo "+this.fileName+" não encontrado");
 		} catch (IOException e) {
@@ -33,20 +30,27 @@ public class ResourceLoader {
 	}
 
 
-	 public String getValue(String configKey){
-		 if(!configs.containsKey(configKey))
-			 throw new IllegalArgumentException("Valor com a chave "+configKey+" não encontrado no arquivo "+fileName);
-		 return configs.getProperty(configKey);
+	 public String getValue(String key){
+		 if(!has(key))
+			 throw new IllegalArgumentException("Valor com a chave "+key+" nao encontrado no arquivo "+fileName);
+		 return properties.getProperty(key);
 	 }
 	 
-	 public void setValue(String configKey, String value){
-		 if(!configs.containsKey(configKey))
-			 throw new IllegalArgumentException("Valor com a chave "+configKey+" não encontrado no arquivo "+fileName);
-		 configs.setProperty(configKey, value);
+	 public void setValue(String key, String value){
+		 if(!has(key))
+			 throw new IllegalArgumentException("Valor com a chave "+key+" nao encontrado no arquivo "+fileName);
+		 properties.setProperty(key, value);
 		 
 	 }
 	 
+	 public boolean has(String key){
+		 return properties.containsKey(key);
+	 }
 	 
+	 
+	public Iterable<String> getKeys() {
+		return (Iterable<String>) properties.stringPropertyNames();
+	}
 
 	 
 	 

@@ -56,11 +56,11 @@ public class OpcClient {
 
 	public void startServices(){
 		
-		if(Configs.getBoolValue("opc.connection.monitor.enable"))
-			enableConnectionMonitor(Configs.getIntValue("opc.connection.monitor.interval"));
-		
-		if(Configs.getBoolValue("opc.autoreconnection.enable"))
-			enableAutoReconnectMonitor(Configs.getIntValue("opc.autoreconnection.interval"));
+		if(Configs.supports("opc.connection.monitor"))
+			enableConnectionMonitor(Configs.getInt("opc.connection.monitor.interval"));
+	
+		if(Configs.supports("opc.autoreconnection"))
+			enableAutoReconnectMonitor(Configs.getInt("opc.autoreconnection.interval"));
 
 	}
 

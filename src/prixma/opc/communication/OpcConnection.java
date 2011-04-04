@@ -30,8 +30,8 @@ public class OpcConnection {
 	}
 
 	public OpcConnection() {
-		this.host = Configs.getValue("opc.server.ip");  
-		this.server = Configs.getValue("opc.server.name");
+		this.host = Configs.get("opc.server.ip");  
+		this.server = Configs.get("opc.server.name");
 	}
 	
 	public void connect(){

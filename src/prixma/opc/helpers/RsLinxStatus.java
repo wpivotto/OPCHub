@@ -7,14 +7,9 @@ public class RsLinxStatus {
 	private final String topic;
 	private final String ping;
 	
-	public RsLinxStatus(String topic, String ping) {
-		this.topic = topic;
-		this.ping = ping;
-	}
-	
 	public RsLinxStatus(String topic) {
 		this.topic = topic;
-		this.ping = Configs.getValue("opc.connection.ping.tag");
+		this.ping = Configs.get("opc.connection.ping");
 	}
 	
 	public String getProcessorMode() {
@@ -142,128 +137,128 @@ public class RsLinxStatus {
 		return new ReadCommand<String>(address, "").execute();
 	}
 	
-	private String getTag(String tag){
-		return "[" + this.topic + "]" + tag;
+	private String getItem(String item){
+		return "[" + this.topic + "]" + item;
 	}
 
 	public String getProcessorModeTag() {
-		return getTag("@Mode");
+		return getItem("@Mode");
 	}
 	
 	public String getProcessorStatusTag() {
-		return getTag("@Status");
+		return getItem("@Status");
 	}
 	
 	public String getProcessorTypeTag() {
-		return getTag("@PLCType");
+		return getItem("@PLCType");
 	}
 	
 	public String getFirmwareVersionTag() {
-		return getTag("@Revision");
+		return getItem("@Revision");
 	}
 	
 	public String getProcessorNameTag() {
-		return getTag("@ProcessorName");
+		return getItem("@ProcessorName");
 	}
 	
 	public String getPacketsSentTag() {
-		return getTag("@PacketsSent");
+		return getItem("@PacketsSent");
 	}
 	
 	public String getPacketsReceivedTag() {
-		return getTag("@PacketsReceived");
+		return getItem("@PacketsReceived");
 	}
 	
 	public String getPacketsCancelledTag() {
-		return getTag("@PacketsCancelled");
+		return getItem("@PacketsCancelled");
 	}
 	
 	public String getAveragePacketResponseTag() {
-		return getTag("@AveragePacketResponse");
+		return getItem("@AveragePacketResponse");
 	}
 	
 	public String getBadUpdatesTag() {
-		return getTag("@BadUpdates");
+		return getItem("@BadUpdates");
 	}
 	
 	public String getPacketsPerSecondTag() {
-		return getTag("@PacketsPerSecond");
+		return getItem("@PacketsPerSecond");
 	}
 	
 	public String getTrendsReinitializedTag() {
-		return getTag("@TrendsReinitialized");
+		return getItem("@TrendsReinitialized");
 	}
 	
 	public String getConnectionsActiveTag() {
-		return getTag("@ConnectionsActive");
+		return getItem("@ConnectionsActive");
 	}
 	
 	public String getConnectionsDroppedTag() {
-		return getTag("@ConnectionsDropped");
+		return getItem("@ConnectionsDropped");
 	}
 	
 	public String getConnectionsAttemptedTag() {
-		return getTag("@ConnectionsAttempted");
+		return getItem("@ConnectionsAttempted");
 	}
 	
 	public String getConnectionOpensFailedTag() {
-		return getTag("@ConnectionOpensFailed");
+		return getItem("@ConnectionOpensFailed");
 	}
 	
 	public String getConnectionOpensRejectedTag() {
-		return getTag("@ConnectionOpensRejected");
+		return getItem("@ConnectionOpensRejected");
 	}
 	
 	public String getConnectionsClosedTag() {
-		return getTag("@ConnectionsClosed");
+		return getItem("@ConnectionsClosed");
 	}
 	
 	public String getConnectionClosesFailedTag() {
-		return getTag("@ConnectionClosesFailed");
+		return getItem("@ConnectionClosesFailed");
 	}
 	
 	public String getConnectionClosesRejectedTag() {
-		return getTag("@ConnectionClosesRejected");
+		return getItem("@ConnectionClosesRejected");
 	}
 	
 	public String getConnectionsUnknownStateTag() {
-		return getTag("@ConnectionsUnknownState");
+		return getItem("@ConnectionsUnknownState");
 	}
 	
 	public String getPollRequestsTag() {
-		return getTag("@PollRequests");
+		return getItem("@PollRequests");
 	}
 	
 	public String getPollRequestsPerSecondTag() {
-		return getTag("@PollRequestsPerSecond");
+		return getItem("@PollRequestsPerSecond");
 	}
 	
 	public String getNumberOfItemsTag() {
-		return getTag("@NumberOfItems");
+		return getItem("@NumberOfItems");
 	}
 	
 	public String getNumberOfPredefinedItemsTag() {
-		return getTag("@NumberOfPredefinedItems");
+		return getItem("@NumberOfPredefinedItems");
 	}
 	
 	public String getNumberOfDataItemsTag() {
-		return getTag("@NumberOfDataItems");
+		return getItem("@NumberOfDataItems");
 	}
 	
 	public String getNumberOfTrendsTag() {
-		return getTag("@NumberOfTrends");
+		return getItem("@NumberOfTrends");
 	}
 	
 	public String getNumberOfPredefinedTrendsTag() {
-		return getTag("@NumberOfPredefinedTrends");
+		return getItem("@NumberOfPredefinedTrends");
 	}
 	
 	public String getNumberOfDataTrendsTag() {
-		return getTag("@NumberOfDataTrends");
+		return getItem("@NumberOfDataTrends");
 	}
 	
 	public String pingTag() {
-		return getTag(ping);
+		return getItem(ping);
 	}
 	
 
